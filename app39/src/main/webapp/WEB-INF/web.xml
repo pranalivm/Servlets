@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<listener>
+	<listener-class>com.durgasoft.listener.HitCountListener</listener-class>
+</listener>
+
+<servlet>
+	<display-naeme>HitCountServlet</display-naeme>
+	<servlet-name>HitCountServlet</servlet-name>
+	<servlet-class>com.durgasoft.servlets.HitCountServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+	<servlet-name>HitCountServlet</servlet-name>
+	<url-pattern>/hitCount</url-pattern>
+</servlet-mapping>

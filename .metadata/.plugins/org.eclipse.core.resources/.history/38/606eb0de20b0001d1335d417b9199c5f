@@ -1,0 +1,35 @@
+package com.durgasoft.listener;
+
+import javax.servlet.ServletContextAttributeEvent;
+import javax.servlet.ServletContextAttributeListener;
+import javax.servlet.ServletContextEvent;
+import javax.servlet.ServletContextListener;
+import javax.servlet.annotation.WebListener;
+
+
+@WebListener
+public class ContextListener implements ServletContextListener, ServletContextAttributeListener {
+
+    
+    public void attributeAdded(ServletContextAttributeEvent scae)  { 
+        
+    }
+
+
+    public void attributeRemoved(ServletContextAttributeEvent scae)  { 
+         
+    }
+
+    public void contextDestroyed(ServletContextEvent sce)  { 
+         
+    }
+
+    public void attributeReplaced(ServletContextAttributeEvent scae)  { 
+         
+    }
+
+    public void contextInitialized(ServletContextEvent sce)  { 
+         
+    }
+	
+}

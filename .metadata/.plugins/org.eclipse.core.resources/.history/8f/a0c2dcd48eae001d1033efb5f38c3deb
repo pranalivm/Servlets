@@ -1,0 +1,117 @@
+package com.durgasoft.filter;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.Filter;
+import javax.servlet.FilterChain;
+import javax.servlet.FilterConfig;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import javax.servlet.annotation.WebFilter;
+import javax.servlet.http.HttpFilter;
+
+
+public class ValidationFilter extends HttpFilter implements Filter {
+ 
+	public void destroy() {
+		
+	}
+
+	
+	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+		try {
+			response.setContentType("text/html") ;
+			PrintWriter out = response.getWriter();
+			
+			String uname= request.getParameter("uname") ;
+			String upwd = request.getParameter("upwd") ;
+			String uage = request.getParameter("uage") ;
+			String uemail = request.getParameter("uemail") ;
+			String umobile= request.getParameter("umobile") ;
+			
+			
+			boolean flag = true; 
+			String uname_Error_Message= "" ;
+			String upwd_Error_Message= "" ;
+			String uage_Error_Message= "" ;
+			String umobile_Error_Message ="" ;
+			String uemail_Error_Message= "" ;
+			
+ 			if(uname == null || uname.equals("")) {
+ 				uname_Error_Message = "User Name is Required " ;
+ 				flag = false ;
+ 			}
+ 			
+ 			if(upwd == null || upwd.equals("")) {
+ 				upwd_Error_Message = "User Password is Required " ;
+ 				flag = false  ;
+ 			}
+ 			
+ 			if(uage == null || uage.equals("")) {
+ 				uage_Error_Message = "User Name is Required " ;
+ 				flag = false  ;
+ 			}
+ 			if(umobile == null || umobile.equals("")) {
+ 				umobile_Error_Message = "User Name is Required " ;
+ 				flag = false  ;
+ 			}
+ 			
+ 			if(uemail == null || uemail.equals("")) {
+ 				uemail_Error_Message = "User Name is Required " ;
+ 				flag = false  ;
+ 			}
+			
+ 			if(flag== true) {	
+ 				chain.doFilter(request, response);
+ 				
+ 			} else {
+ 				
+ 				out.println("<html>") ;
+ 				out.println("<h2 style ='color:red;' align='center'>Durga Banking Services </h2> ") ;
+ 				out.println("<h3 style= 'color:blue;' align='center' >Customer Registration Form</h3> ") ;
+ 				out.println("<form method = 'Post' action= './reg'>");
+ 				out.println("<table align ='center' >");
+ 				out.println("<tr>");
+ 				out.println("<td> User Name </td>") ;
+ 				out.println("<td> <input type='text' name='uname' value='"+uname+"'/></td>") ;
+ 				out.println("<td><font color ='red' size='5' >"+uname_Error_Message+"</font></td>" );
+ 				out.println("</tr>");	
+ 				
+ 				out.println("<tr>");
+ 				out.println("<td> User Password </td>") ;
+ 				out.println("<td> <input type='text' name='password' value='"+upwd+"'/></td>") ;
+ 				out.println("<td><font color ='red' size='5' >"+upwd_Error_Message+"</font></td>" );
+ 				out.println("</tr>");	
+ 				
+ 				out.println("<tr>");
+ 				out.println("<td> User Age </td>") ;
+ 				out.println("<td> <input type='text' name='uage' value='"+uage+"'/></td>") ;
+ 				out.println("<td><font color ='red' size='5' >"+uemail_Error_Message+"</font></td>" );
+ 				out.println("</tr>");	
+ 				
+ 				out.println("<tr>");
+ 				out.println("<td> User Mobile </td>") ;
+ 				out.println("<td> <input type='text' name='uname' value='"+umobile+"'/></td>") ;
+ 				out.println("<td><font color ='red' size='5' >"+umobile_Error_Message+"</font></td>" );
+ 				out.println("</tr>");	
+ 				
+ 				out.println("<tr> <td><input type='submit' value='Registration' /></td></tr> ");	
+ 				
+ 				
+ 			}
+ 			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	
+	}
+
+	
+	public void init(FilterConfig fConfig) throws ServletException {
+		
+		
+	}
+
+}

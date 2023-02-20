@@ -1,0 +1,74 @@
+package com.durgasoft.filter;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.Filter;
+import javax.servlet.FilterChain;
+import javax.servlet.FilterConfig;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import javax.servlet.annotation.WebFilter;
+import javax.servlet.http.HttpFilter;
+
+
+public class ValidationFilter extends HttpFilter implements Filter {
+ 
+	public void destroy() {
+		
+	}
+
+	
+	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+		try {
+			response.setContentType("text/html") ;
+			PrintWriter out = response.getWriter();
+			
+			String uname= request.getParameter("uname") ;
+			String upwd = request.getParameter("upwd") ;
+			String uage = request.getParameter("uage") ;
+			String uemail = request.getParameter("uemail") ;
+			String umobile= request.getParameter("umobile") ;
+			
+			
+			boolean flag = true; 
+			String uname_Error_Message= "" ;
+			String upwd_Error_Message= "" ;
+			String uage_Error_Message= "" ;
+			String uemail_Error_Message= "" ;
+			
+ 			if(uname == null || uname.equals("")) {
+ 				uname_Error_Message = "User Name is Required " ;
+ 				flag = false ;
+ 			}
+ 			
+ 			if(upwd == null || upwd.equals("")) {
+ 				upwd_Error_Message = "User Password is Required " ;
+ 				flag = false  ;
+ 			}
+ 			
+ 			if(uage == null || uage.equals("")) {
+ 				uage_Error_Message = "User Name is Required " ;
+ 				flag = false  ;
+ 			}
+ 			
+ 			if(uemail == null || uemail.equals("")) {
+ 				uemail_Error_Message = "User Name is Required " ;
+ 				flag = false  ;
+ 			}
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		chain.doFilter(request, response);
+	}
+
+	
+	public void init(FilterConfig fConfig) throws ServletException {
+		
+		
+	}
+
+}

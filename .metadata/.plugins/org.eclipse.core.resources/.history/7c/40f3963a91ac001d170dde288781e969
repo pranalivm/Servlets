@@ -1,0 +1,13 @@
+package com.durgasoft.client;
+
+import java.applet.Applet;
+import java.awt.event.ActionEvent;
+import java.awt.event.*;
+
+public class LoginApplet extends Applet implements ActionListener {
+
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		
+	}
+}

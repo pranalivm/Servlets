@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app>
+	<servlet> 
+		<description></description>
+		<display-name> RegistrationServlet</display-name>
+		<servlet-name>RegistrationServlet</servlet-name>
+		<servlet-class>com.durgasoft.servlets.RegistrationServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>RegistrationServlet</servlet-name>
+		<url-pattern>/reg</url-pattern>
+	</servlet-mapping>
+	
+<filter>
+	<display-name>ValidationFilter</display-name>
+	<filter-name>ValidationFilter</filter-name>
+	<filte-class>com.durgasoft.filter.ValidationFilter</filte-class>
+</filter>
+
+<filter-mapping>
+	<filter-name>ValidationFilter</filter-name>
+	<url-pattern>/reg</url-pattern>
+</filter-mapping>
+
+</web-app>

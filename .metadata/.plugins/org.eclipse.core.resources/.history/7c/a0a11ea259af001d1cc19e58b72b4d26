@@ -1,0 +1,5 @@
+package com.durgasoft.request;
+
+public class MyRequest {
+
+}

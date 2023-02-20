@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.durgasoft.request.MyReques&apos; to &apos;MyRequest&apos;&#x0D;&#x0A;- Original project: &apos;app37&apos;&#x0D;&#x0A;- Original element: &apos;com.durgasoft.request.MyReques&apos;&#x0D;&#x0A;- Renamed element: &apos;com.durgasoft.request.MyRequest&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;MyReques&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src\/main\/java&lt;com.durgasoft.request{MyReques.java[MyReques" matchStrategy="1" name="MyRequest" qualified="false" references="true" similarDeclarations="false" stamp="1676703297134" textual="false" version="1.0"/>
+</session>

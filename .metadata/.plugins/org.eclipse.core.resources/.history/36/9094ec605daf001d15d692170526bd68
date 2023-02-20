@@ -1,0 +1,5 @@
+package com.durgasoft.response;
+
+public class MyResponse {
+
+}

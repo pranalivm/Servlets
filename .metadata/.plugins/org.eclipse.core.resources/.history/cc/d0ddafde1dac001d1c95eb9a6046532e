@@ -1,0 +1,55 @@
+package com.durgasoft.controller;
+
+import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.durgasoft.beans.Student;
+
+@WebServlet("*.do")
+public class ControllerServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		doProcess(request,response );
+	}
+
+	
+	
+
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		doProcess(request,response );
+	}
+	private void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String request_URI = request.getRequestURI() ; 
+		System.out.println(request_URI) ;
+		
+		RequestDispatcher requestDispatcher = null ;
+		// adding on my own
+		requestDispatcher = request.getRequestDispatcher(request_URI) ;
+		requestDispatcher.forward(request, response);
+		
+		if(request_URI.endsWith("addform.do")) {
+			String sid = request.getParameter("sid") ;
+			String sname = request.getParameter("sname") ;
+			String saddr = request.getParameter("saddr") ;
+			
+			Student student = new Student() ;
+			student.setSid(sid);
+			student.setSname(sname);
+			student.setSaddr(saddr);
+		}
+		
+		
+	}
+
+}

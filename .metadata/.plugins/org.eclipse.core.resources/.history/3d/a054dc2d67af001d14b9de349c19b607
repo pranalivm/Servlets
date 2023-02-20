@@ -1,0 +1,24 @@
+package com.durgasoft.listener;
+
+import javax.servlet.ServletRequestEvent;
+import javax.servlet.ServletRequestListener;
+import javax.servlet.annotation.WebListener;
+
+
+@WebListener
+public class HitCountListener implements ServletRequestListener {
+	int count =0 ;
+	
+       public HitCountListener() {
+    }
+
+	 
+    public void requestDestroyed(ServletRequestEvent sre)  { 
+         
+    }
+
+    public void requestInitialized(ServletRequestEvent event)  { 
+         
+    }
+	
+}
